@@ -5,8 +5,14 @@ import { OrderCreatedEvent } from '../events/order-created.event';
 @Injectable()
 export class OrderCreatedListener {
   @OnEvent('order.created')
-  handleOrderCreatedEvent(event: OrderCreatedEvent) {
+  sendEmail(event: OrderCreatedEvent) {
     // handle and process "OrderCreatedEvent" event
-    console.log(event);
+    console.log(event, 'send email');
+  }
+
+  @OnEvent('order.created')
+  sendSms(event: OrderCreatedEvent) {
+    // handle and process "OrderCreatedEvent" event
+    console.log(event, 'send sms');
   }
 }
